@@ -33,6 +33,7 @@
       --brand-blue-hover: #003f6b;
       --footer-bg: #003A63;
       --footer-text: #f1f1f1;
+        --error-color: #d9534f;
     }
     .btn-primary {
       background-color: var(--brand-blue) !important;
@@ -67,6 +68,31 @@
     footer .footer-text {
       font-size: 0.875rem;
     }
+
+#api ul { list-style: none; padding: 0; margin: 0; }
+#api li { margin-bottom: 1rem; }
+#api label { display: block; font-weight: 500; margin-bottom: 0.25rem; text-align: left; }
+#api input.textInput {
+      width: 100%; padding: 0.5rem; border: 1px solid #ced4da; border-radius: 0.25rem; font-size: 1rem;
+       background-color: var(--brand-blue-hover) !important;
+      border-color: var(--brand-blue-hover) !important;
+}
+
+#api .helpLink.tiny { display: none; }
+    #api .intro { display: none; }
+    #api #cancel { display: none !important; }
+    /* Error styling */
+    #api #claimVerificationServerError,
+    #api #fieldIncorrect,
+    #api #requiredFieldMissing,
+    #api #passwordEntryMismatch {
+      color: var(--error-color); margin-bottom: 1rem; font-weight: 500;
+    }
+    /* Style continue button */
+    #api button#continue {
+      display: block; width: 100%; padding: 0.5rem; background-color: var(--brand-blue); color: #fff; border: none; border-radius: 0.25rem; font-size: 1rem; margin-bottom: 0.5rem;
+    }
+    #api button#continue:hover { background-color: #003f6b; }
 
 .helpLink.tiny,
 .intro,
