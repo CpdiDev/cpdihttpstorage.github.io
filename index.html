@@ -2,21 +2,59 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Sign in with your username 2</title>
+  <title>Sign in with your username</title>
   <!-- Load jQuery (required by Kendo) -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <!-- Telerik Kendo UI Core CDN Styles -->
   <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2025.1.119/styles/kendo.default-v2.min.css" />
   <style>
-    /* Custom branding or overrides */
-    body { font-family: Segoe UI, Arial, sans-serif; margin: 2rem; background-color: #f5f5f5; }
-    #api { max-width: 400px; margin: 0 auto; padding: 1.5rem; background: #fff; border-radius: 0.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-    h1 { text-align: center; margin-bottom: 1.5rem; }
+    /* Full-page background using SVG */
+    body {
+      font-family: Segoe UI, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('background.svg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    /* Container card */
+    #api {
+      width: 400px;
+      padding: 1.5rem;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+    /* Logo styling */
+    .logo-container img {
+      max-width: 200px;
+      margin-bottom: 1rem;
+    }
+    h1 {
+      margin-bottom: 1rem;
+    }
+    form label {
+      display: block;
+      text-align: left;
+      margin: 0.5rem 0 0.25rem;
+    }
+    form input, form button {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+    }
   </style>
 </head>
 <body>
   <div id="api">
-    <h1>Sign in with your username 2</h1>
+    <div class="logo-container">
+      <img src="logo.svg" alt="Company Logo" />
+    </div>
+    <h1>Sign in with your username</h1>
     <form method="post" id="signinForm">
       <label for="signInName">Username</label>
       <input
@@ -39,12 +77,13 @@
   </div>
 
   <!-- Azure B2C Self-Asserted Engine -->
-  <script src="https://CpdiTestBed.b2clogin.com/static/selfasserted.js"></script>
+  <script src="https://<yourtenant>.b2clogin.com/static/selfasserted.js"></script>
   <!-- Telerik Kendo UI Core CDN Script (after jQuery) -->
   <script src="https://kendo.cdn.telerik.com/2025.1.119/js/kendo.all.min.js"></script>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    // Wait for B2C self-asserted control to finish rendering
+    window.addEventListener('api.ready', function() {
       // Ensure kendo and jQuery are available
       if (!window.kendo || !window.jQuery) {
         console.error("Kendo or jQuery not loaded");
@@ -52,22 +91,17 @@
       }
 
       // Initialize Kendo TextBox for username
-      kendo.jQuery("#signInName").kendoTextBox({
-        placeholder: "Enter your username"
-      });
+      kendo.jQuery("#signInName").kendoTextBox({ placeholder: "Enter your username" });
 
-      // Initialize Kendo TextBox for password
+      // Initialize Kendo TextBox for password and set input type
       var pwd = kendo.jQuery("#password");
       pwd.kendoTextBox({ placeholder: "Enter your password" });
       pwd.attr("type", "password");
 
       // Initialize Kendo Button for submit
-      kendo.jQuery("#signin").kendoButton({
-        icon: "unlock",
-        iconPosition: "start"
-      });
+      kendo.jQuery("#signin").kendoButton({ icon: "unlock", iconPosition: "start" });
 
-      // Optional: handle form submit for UX
+      // Enhance submit UX
       kendo.jQuery("#signinForm").on("submit", function(e) {
         var btn = kendo.jQuery("#signin").data("kendoButton");
         btn.content("Signing in...");
@@ -77,6 +111,3 @@
   </script>
 </body>
 </html>
-
-
-  
