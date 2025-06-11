@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Sign in with your username</title>
+  <style>
+    /* Add your branding, fonts, colors, etc. here */
+    body { font-family: Segoe UI, Arial, sans-serif; margin: 2rem; }
+    input, button { display: block; width: 100%; padding: 0.5rem; margin-bottom: 1rem; }
+  </style>
+</head>
+<body>
+  <div id="api">
+    <h1>Sign in with your username</h1>
+    <form method="post" id="api">
+      <label for="signInName">Username</label>
+      <input
+        type="text"
+        id="signInName"
+        name="signInName"
+        data-type="signInName"
+        placeholder="Enter your username" />
+
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        data-type="password"
+        placeholder="Enter your password" />
+
+      <button type="submit" id="signin">Sign in</button>
+    </form>
+  </div>
+
+  <!-- These scripts wire up the page to B2C’s self-asserted engine: -->
+  <script src="https://yourtenant.b2clogin.com/static/selfasserted.js"></script>
+</body>
+</html>
