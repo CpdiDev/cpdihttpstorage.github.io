@@ -48,6 +48,57 @@
       background-color: #003f6b;
       border-color: #003f6b;
     }
+    /* Override B2C form list styling */
+    #api ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    #api li {
+      margin-bottom: 1rem;
+    }
+    /* Style B2C inputs like Bootstrap */
+    #api input.textInput {
+      display: block;
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.25rem;
+      border: 1px solid #ced4da;
+      border-radius: 0.25rem;
+      font-size: 1rem;
+    }
+    #api label {
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+      display: block;
+      text-align: left;
+    }
+    /* Help link styling */
+    #api .helpLink {
+      font-size: 0.8rem;
+      float: right;
+    }
+    /* Style B2C buttons */
+    #api button#continue, #api button#cancel {
+      display: block;
+      width: 100%;
+      margin-bottom: 0.5rem;
+      padding: 0.5rem;
+      font-size: 1rem;
+      border-radius: 0.25rem;
+      border: none;
+    }
+    #api button#continue {
+      background-color: var(--brand-blue);
+      color: #fff;
+    }
+    #api button#continue:hover {
+      background-color: #003f6b;
+    }
+    #api button#cancel {
+      background-color: #6c757d;
+      color: #fff;
+    }
     /* Footer styles */
     footer {
       background-color: var(--footer-bg);
