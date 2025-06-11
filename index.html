@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <title>Sign in with your username</title>
+  <!-- Load jQuery (required by Kendo) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <!-- Telerik Kendo UI Core CDN Styles -->
   <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2025.1.119/styles/kendo.default-v2.min.css" />
   <style>
@@ -38,18 +40,23 @@
 
   <!-- Azure B2C Self-Asserted Engine -->
   <script src="https://CpdiTestBed.b2clogin.com/static/selfasserted.js"></script>
-  <!-- Telerik Kendo UI Core CDN Script -->
+  <!-- Telerik Kendo UI Core CDN Script (after jQuery) -->
   <script src="https://kendo.cdn.telerik.com/2025.1.119/js/kendo.all.min.js"></script>
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {
+      // Ensure kendo and jQuery are available
+      if (!window.kendo || !window.jQuery) {
+        console.error("Kendo or jQuery not loaded");
+        return;
+      }
+
       // Initialize Kendo TextBox for username
       kendo.jQuery("#signInName").kendoTextBox({
         placeholder: "Enter your username"
       });
 
       // Initialize Kendo TextBox for password
-      // Kendo TextBox does not natively support type password, so wrap the input directly
       var pwd = kendo.jQuery("#password");
       pwd.kendoTextBox({ placeholder: "Enter your password" });
       pwd.attr("type", "password");
@@ -70,3 +77,6 @@
   </script>
 </body>
 </html>
+
+
+  
