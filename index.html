@@ -3,51 +3,35 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CPDI Connect Login 3</title>
+  <title>CPDI Connect Login 4</title>
+
   <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
   <!-- Bootstrap Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    rel="stylesheet"
+  />
+
   <style>
-  /* hide the tiny help links & cancel button */
-  .helpLink.tiny,
-  #cancel { display: none !important; }
-
-  /* hide the intro paragraph */
-  .intro { display: none !important; }
-
-  /* page-level errors */
-  #claimVerificationServerError,
-  #fieldIncorrect,
-  #requiredFieldMissing,
-  #passwordEntryMismatch {
-    display: block !important;
-    color: #dc3545 !important;        /* Bootstrap “danger” red */
-    margin: .75rem 0 !important;
-    font-size: 1rem;
-  }
-
-  /* inline (itemLevel) errors */
-  .itemLevel {
-    display: block !important;
-    color: #dc3545 !important;
-    font-size: .875rem;
-    margin-top: .25rem;
-  }
-
-
-    
-    /* Full-page SVG background */
+    /* ================================
+       Page & Card Layout
+       ================================ */
     body {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      background: url('https://cpdidev.github.io/cpdihttpstorage.github.io/background.svg') no-repeat center center fixed;
-      background-size: cover;
-      font-family: 'Segoe UI', Arial, sans-serif;
       margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+
+      /* full-page SVG background */
+      background: url('https://cpdidev.github.io/cpdihttpstorage.github.io/background.svg')
+        no-repeat center center fixed;
+      background-size: cover;
     }
-    /* Center card */
     .auth-card {
       max-width: 400px;
       width: 100%;
@@ -62,44 +46,28 @@
       max-width: 180px;
       margin-bottom: 1rem;
     }
-    /* Brand colors */
+
+    /* ================================
+       Brand Colors
+       ================================ */
     :root {
       --brand-blue: #00538F;
+      --brand-blue-hover: #003f6b;
       --footer-bg: #003A63;
       --footer-text: #f1f1f1;
-      --error-color: #d9534f;
     }
     .btn-primary {
-      background-color: var(--brand-blue);
-      border-color: var(--brand-blue);
+      background-color: var(--brand-blue) !important;
+      border-color: var(--brand-blue) !important;
     }
     .btn-primary:hover {
-      background-color: #003f6b;
-      border-color: #003f6b;
+      background-color: var(--brand-blue-hover) !important;
+      border-color: var(--brand-blue-hover) !important;
     }
-    /* B2C form overrides */
-    #api ul { list-style: none; padding: 0; margin: 0; }
-    #api li { margin-bottom: 1rem; }
-    #api label { display: block; font-weight: 500; margin-bottom: 0.25rem; text-align: left; }
-    #api input.textInput {
-      width: 100%; padding: 0.5rem; border: 1px solid #ced4da; border-radius: 0.25rem; font-size: 1rem;
-    }
-    #api .helpLink.tiny { display: none; }
-    #api .intro { display: none; }
-    #api #cancel { display: none !important; }
-    /* Error styling */
-    #api #claimVerificationServerError,
-    #api #fieldIncorrect,
-    #api #requiredFieldMissing,
-    #api #passwordEntryMismatch {
-      color: var(--error-color); margin-bottom: 1rem; font-weight: 500;
-    }
-    /* Style continue button */
-    #api button#continue {
-      display: block; width: 100%; padding: 0.5rem; background-color: var(--brand-blue); color: #fff; border: none; border-radius: 0.25rem; font-size: 1rem; margin-bottom: 0.5rem;
-    }
-    #api button#continue:hover { background-color: #003f6b; }
-    /* Footer styles */
+
+    /* ================================
+       Footer
+       ================================ */
     footer {
       background-color: var(--footer-bg);
       color: var(--footer-text);
@@ -114,83 +82,110 @@
       justify-content: center;
       flex-wrap: wrap;
     }
-    footer .footer-logo { max-height: 40px; margin-right: 0.5rem; }
-    footer .footer-text { font-size: 0.875rem; }
+    footer .footer-logo {
+      max-height: 40px;
+      margin-right: 0.5rem;
+    }
+    footer .footer-text {
+      font-size: 0.875rem;
+    }
+
+    /* ================================
+       B2C Form Overrides
+       ================================ */
+    /* hide the tiny help links, intro, and cancel button */
+    .helpLink.tiny,
+    .intro,
+    #cancel {
+      display: none !important;
+    }
+
+    /* only style page-level errors once B2C unhides them */
+    .error.pageLevel:not([style*="display: none"]) {
+      display: block !important;
+      color: #dc3545 !important;       /* bootstrap danger */
+      margin: 0.75rem 0 !important;
+      font-size: 1rem !important;
+    }
+
+    /* inline (itemLevel) errors */
+    .itemLevel {
+      display: block !important;
+      color: #dc3545 !important;
+      font-size: 0.875rem !important;
+      margin-top: 0.25rem !important;
+    }
   </style>
 </head>
+
 <body>
+  <!-- Login Card -->
   <div class="auth-card">
-    <img src="https://cpdidev.github.io/cpdihttpstorage.github.io/logo.svg" alt="Company Logo" class="auth-logo">
+    <img
+      src="https://cpdidev.github.io/cpdihttpstorage.github.io/logo.svg"
+      alt="Company Logo"
+      class="auth-logo"
+    />
     <h2 class="mb-4 text-dark">Sign in</h2>
+
+    <!-- B2C will inject its form here -->
     <div id="api" data-name="SelfAsserted"></div>
   </div>
 
   <!-- Footer -->
   <footer>
     <div class="footer-container">
-      <img src="https://cpdidev.github.io/cpdihttpstorage.github.io/devlogo.svg" alt="Dev Company Logo" class="footer-logo">
-      <div class="footer-text">© 2025 CPDI Software Engineering. All rights reserved.</div>
+      <img
+        src="https://cpdidev.github.io/cpdihttpstorage.github.io/devlogo.svg"
+        alt="Dev Company Logo"
+        class="footer-logo"
+      />
+      <div class="footer-text">
+        © 2025 CPDI Software Engineering. All rights reserved.
+      </div>
     </div>
   </footer>
 
   <!-- Azure B2C Self-Asserted Engine -->
   <script src="https://cpditestbed.b2clogin.com/static/selfasserted.js"></script>
-  <!-- Bootstrap JS bundle -->
+  <!-- Bootstrap JS bundle (includes Popper) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
- <script>
-  window.addEventListener('api.ready', function() {
-    // 1. Remove unwanted bits
-    document.querySelectorAll('.helpLink.tiny').forEach(el => el.remove());
-    document.getElementById('cancel')?.remove();
-    document.querySelector('.intro')?.remove();
 
-    // 2. Style the built-in page-level error messages
-    ['claimVerificationServerError','fieldIncorrect','requiredFieldMissing','passwordEntryMismatch']
-      .forEach(id => {
-        const e = document.getElementById(id);
-        if (e) {
-          e.classList.add('text-danger', 'mb-3');
-          e.style.display = 'block';
-        }
-      });
+  <script>
+    function applyCustomizations() {
+      // 1) Rename label → Username
+      document.querySelector('label[for="signInName"]')?.textContent = 'Username';
 
-    // 2b. Style the item-level error placeholders
-    document.querySelectorAll('.itemLevel').forEach(el => {
-      el.classList.add('text-danger', 'small', 'mt-1');
-    });
+      // 2) Rename Continue → Sign in
+      document.getElementById('continue')?.textContent = 'Sign in';
 
-    // 3. Rename "Sign in name" label to "Username"
-    const signInLabel = document.querySelector('label[for="signInName"]');
-    if (signInLabel) signInLabel.textContent = 'Username';
+      // 3) Inject lock/unlock toggle
+      const pwd = document.getElementById('password');
+      if (pwd && !pwd.parentElement.querySelector('.btn-toggle')) {
+        const wrapper = pwd.parentElement;
+        wrapper.classList.add('input-group', 'mb-3');
 
-    // 4. Change Continue → Sign in
-    const contBtn = document.getElementById('continue');
-    if (contBtn) contBtn.textContent = 'Sign in';
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'btn btn-outline-secondary btn-toggle';
+        btn.setAttribute('aria-label', 'Show password');
+        btn.innerHTML = '<i class="bi bi-lock-fill"></i>';
 
-    // 5. Inject a password-view toggle
-    const pwdInput = document.getElementById('password');
-    if (pwdInput) {
-      const wrapper = pwdInput.parentElement;
-      wrapper.classList.add('input-group', 'mb-3');
+        btn.addEventListener('click', () => {
+          const isPw = pwd.type === 'password';
+          pwd.type = isPw ? 'text' : 'password';
+          btn.firstElementChild.className = isPw
+            ? 'bi bi-unlock-fill'
+            : 'bi bi-lock-fill';
+        });
 
-      const toggle = document.createElement('button');
-      toggle.type = 'button';
-      toggle.className = 'btn btn-outline-secondary';
-      toggle.setAttribute('aria-label', 'Show password');
-      toggle.innerHTML = '<i class="bi bi-lock-fill"></i>';
-
-      toggle.addEventListener('click', () => {
-        const isPw = pwdInput.type === 'password';
-        pwdInput.type = isPw ? 'text' : 'password';
-        toggle.firstElementChild.className = isPw
-          ? 'bi bi-unlock-fill'
-          : 'bi bi-lock-fill';
-      });
-
-      wrapper.appendChild(toggle);
+        wrapper.appendChild(btn);
+      }
     }
-  });
-</script>
 
+    // Run as soon as B2C says it's ready, and again after 1s
+    window.addEventListener('api.ready', applyCustomizations);
+    setTimeout(applyCustomizations, 1000);
+  </script>
 </body>
 </html>
