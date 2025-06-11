@@ -98,6 +98,10 @@
   display: none !important;
 }
 
+.verifying-modal {
+    display: none !important;
+}
+
 /* page-level errors once shown */
 .error.pageLevel:not([style*="display: none"]) {
   display: block !important;
