@@ -74,8 +74,6 @@
 #api label { display: block; font-weight: 500; margin-bottom: 0.25rem; text-align: left; }
 #api input.textInput {
       width: 100%; padding: 0.5rem; border: 1px solid #ced4da; border-radius: 0.25rem; font-size: 1rem;
-       background-color: var(--brand-blue-hover) !important;
-      border-color: var(--brand-blue-hover) !important;
 }
 
 #api .helpLink.tiny { display: none; }
