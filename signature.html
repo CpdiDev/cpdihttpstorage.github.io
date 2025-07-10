@@ -35,11 +35,22 @@
       margin: 4px 0;
       font-style: italic;
     }
+
+    /* logo fixed height, auto width */
+    .logo img {
+      height: 50px;
+      width: auto;
+      vertical-align: bottom;
+    }
+
+    /* badges all the same square size */
     .badges img {
-      height: 80px;
+      width: 30px;
+      height: 30px;
       vertical-align: bottom;
       margin-right: 8px;
     }
+
     .brands img {
       height: 30px;
       vertical-align: bottom;
@@ -61,9 +72,9 @@
   <table cellpadding="0" cellspacing="0">
     <!-- logo -->
     <tr>
-      <td style="padding-bottom:12px;">
+      <td class="logo" style="padding-bottom:12px;">
         <img src="https://cpdidev.github.io/cpdihttpstorage.github.io/logo.svg"
-             alt="CPDI Logo" style="height:50px;">
+             alt="CPDI Logo">
       </td>
     </tr>
 
@@ -105,7 +116,8 @@
     <!-- sub-brand logos -->
     <tr>
       <td class="brands" style="padding-top:12px;">
-        <img src="https://cpdidev.github.io/cpdihttpstorage.github.io/cpdiemailsignatures.png"  alt="AcidBlue">
+        <img src="https://cpdidev.github.io/cpdihttpstorage.github.io/cpdiemailsignatures.png"
+             alt="AcidBlue">
       </td>
     </tr>
 
