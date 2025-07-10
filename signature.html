@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Email Signature</title>
+  <title>Outlook Signature</title>
   <style>
     body {
       margin: 0;
@@ -26,24 +26,24 @@
     .title {
       font-style: italic;
       color: #1F3C88;
-      margin: 0;
+      margin: 0 0 6px;
     }
     .contact, .address {
       margin: 0;
     }
     .web-links p {
-      margin: 0;
+      margin: 4px 0;
       font-style: italic;
     }
-    .badges img, .brands img {
-      vertical-align: middle;
-      margin-right: 5px;
+    .badges img {
+      height: 80px;
+      vertical-align: bottom;
+      margin-right: 8px;
     }
-    .badges {
-      margin-top: 10px;
-    }
-    .brands {
-      margin-top: 8px;
+    .brands img {
+      height: 30px;
+      vertical-align: bottom;
+      margin-right: 8px;
     }
     .disclaimer {
       margin-top: 12px;
@@ -51,21 +51,25 @@
       color: #666;
       line-height: 1.1em;
     }
-    .disclaimer strong {
-      display: block;
-      margin-bottom: 4px;
+    .disclaimer u {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
 
   <table cellpadding="0" cellspacing="0">
-    <!-- logo + contact info -->
+    <!-- logo -->
     <tr>
-      <td valign="top" style="padding-right:10px;">
-        <img src="https://cpdidev.github.io/cpdihttpstorage.github.io/logo.png" alt="CPDI Logo" style="height:50px;">
+      <td style="padding-bottom:12px;">
+        <img src="https://cpdidev.github.io/cpdihttpstorage.github.io/logo.png"
+             alt="CPDI Logo" style="height:50px;">
       </td>
-      <td valign="top">
+    </tr>
+
+    <!-- name & title & contact -->
+    <tr>
+      <td>
         <p class="name">Scott Pecora</p>
         <p class="title">Senior Software Engineer</p>
         <p class="contact">630.972.0100 <span style="font-style:normal;">Office</span></p>
@@ -78,43 +82,52 @@
       </td>
     </tr>
 
-    <!-- website links -->
+    <!-- websites -->
     <tr>
-      <td colspan="2" class="web-links">
-        <p>
-          <a href="https://www.cpdi-inc.com">Visit our website at www.cpdi-inc.com</a>
-        </p>
-        <p>
-          <a href="https://www.kleanmatters.com">Visit our website at www.kleanmatters.com</a>
-        </p>
+      <td class="web-links" style="padding-top:10px;">
+        <p><a href="https://www.cpdi-inc.com">Visit our website at www.cpdi-inc.com</a></p>
+        <p><a href="https://www.kleanmatters.com">Visit our website at www.kleanmatters.com</a></p>
       </td>
     </tr>
 
     <!-- certification badges -->
     <tr>
-      <td colspan="2" class="badges">
-        <img src="https://cpdidev.github.io/cpdihttpstorage.github.io/GreatePlaceToPlace.png" alt="Great Place To Work Certified" style="height:60px;">
-        <img src="https://cpdidev.github.io/cpdihttpstorage.github.io/Fortune2.png" alt="Best Manufacturing & Production" style="height:60px;">
-        <img src="https://cpdidev.github.io/cpdihttpstorage.github.io/Fortune.png" alt="Best Medium Workplaces" style="height:60px;">
+      <td class="badges" style="padding-top:12px;">
+        <img src="https://cpdidev.github.io/cpdihttpstorage.github.io/GreatPlaceToWork.png"
+             alt="Great Place To Work Certified">
+        <img src="https://cpdidev.github.io/cpdihttpstorage.github.io/Fortune_Best_Manufacturing.png"
+             alt="Best Manufacturing & Production">
+        <img src="https://cpdidev.github.io/cpdihttpstorage.github.io/Fortune_Best_Medium.png"
+             alt="Best Medium Workplaces">
       </td>
     </tr>
 
-    <!-- brand sub-logos -->
+    <!-- sub-brand logos -->
     <tr>
-        <img src="https://cpdidev.github.io/cpdihttpstorage.github.io/cpdiemailsignatures.png" alt="Acid Blue" style="height:30px;">
+      <td class="brands" style="padding-top:12px;">
+        <img src="https://cpdidev.github.io/cpdihttpstorage.github.io/acidblue.png"  alt="AcidBlue">
+        <img src="https://cpdidev.github.io/cpdihttpstorage.github.io/arcopep.png"  alt="AROCEP">
+        <img src="https://cpdidev.github.io/cpdihttpstorage.github.io/champion.png" alt="Champion">
+        <img src="https://cpdidev.github.io/cpdihttpstorage.github.io/gogreen.png"   alt="GoGreen">
+        <img src="https://cpdidev.github.io/cpdihttpstorage.github.io/hilex.png"    alt="Hi-Lex">
+        <img src="https://cpdidev.github.io/cpdihttpstorage.github.io/majestic.png" alt="Majestic">
+        <img src="https://cpdidev.github.io/cpdihttpstorage.github.io/novelwash.png" alt="NovelWash">
+        <img src="https://cpdidev.github.io/cpdihttpstorage.github.io/sunbrite.png"  alt="Sunbrite">
+        <img src="https://cpdidev.github.io/cpdihttpstorage.github.io/vertex.png"    alt="Vertex">
+      </td>
     </tr>
 
     <!-- disclaimer -->
     <tr>
-      <td colspan="2" class="disclaimer">
-        <strong>DISCLAIMER:</strong>
+      <td class="disclaimer">
+        <u>DISCLAIMER:</u>
         This communication, along with any documents, files or attachments, is intended only for the use of the
         addressee and may contain legally privileged and confidential information. If you are not the intended
         recipient, you are hereby notified that any dissemination, distribution or copying of any information
         contained in or attached to this communication is strictly prohibited. If you have received this
-        message in error, please notify the sender immediately and destroy the original communication and its
-        attachments without reading, printing or saving in any manner. This e-mail does not form any contractual
-        obligation on behalf of the sender or Champion Packaging & Distribution, Inc.
+        message in error, please notify the sender immediately and destroy the original communication and
+        its attachments without reading, printing or saving in any manner. This e-mail does not form any
+        contractual obligation on behalf of the sender or Champion Packaging & Distribution, Inc.
       </td>
     </tr>
   </table>
